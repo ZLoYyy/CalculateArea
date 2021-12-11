@@ -4,9 +4,9 @@ namespace CalculateArea.Tests
 {
     [TestFixture]
     public class Tests
-    {        
+    {
         /// <summary>
-        /// Площадь круга
+        /// Calculate Circle area 
         /// </summary>
         [Test]
         public void CircleCalculateAreaTest()
@@ -18,7 +18,7 @@ namespace CalculateArea.Tests
             Assert.AreEqual(615.7521601035994, area);
         }
         /// <summary>
-        /// Площадь треугольника
+        /// Calculate trinagle area 
         /// </summary>
         [Test]
         public void TrinagleCalculateAreaTest()
@@ -30,7 +30,7 @@ namespace CalculateArea.Tests
             Assert.AreEqual(41.07843108006926, area);
         }
         /// <summary>
-        /// Проверка, является ли треугольник прямоугольным
+        /// Trinagle is rectangular
         /// </summary>
         [Test]
         public void TrinagleIsRectangularTrueTest()
@@ -42,7 +42,7 @@ namespace CalculateArea.Tests
             Assert.AreEqual(true, area);
         }
         /// <summary>
-        /// Проверка, не является ли треугольник прямоугольным
+        /// Trinagle is not rectangular
         /// </summary>
         [Test]
         public void TrinagleIsRectangularFalseTest()
@@ -54,7 +54,7 @@ namespace CalculateArea.Tests
             Assert.AreEqual(false, area);
         }
         /// <summary>
-        /// Вычисление площади фигуры без знания типа фигуры
+        /// Calculating area without knowing the figure type
         /// </summary>
         [Test]
         public void FigureCalculateAreaTest()
