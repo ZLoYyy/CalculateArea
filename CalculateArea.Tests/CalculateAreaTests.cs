@@ -2,18 +2,12 @@ using NUnit.Framework;
 
 namespace CalculateArea.Tests
 {
+    [TestFixture]
     public class Tests
-    {
-        [SetUp]
-        public void Setup()
-        {
-            CircleCalculateAreaTest();
-            TrinagleCalculateAreaTest();
-            TrinagleIsRectangularTrueTest();
-            TrinagleIsRectangularFalseTest();
-            FigureCalculateAreaTest();
-        }
-
+    {        
+        /// <summary>
+        /// Площадь круга
+        /// </summary>
         [Test]
         public void CircleCalculateAreaTest()
         {
@@ -23,7 +17,9 @@ namespace CalculateArea.Tests
 
             Assert.AreEqual(615.7521601035994, area);
         }
-
+        /// <summary>
+        /// Площадь треугольника
+        /// </summary>
         [Test]
         public void TrinagleCalculateAreaTest()
         {
@@ -33,6 +29,9 @@ namespace CalculateArea.Tests
 
             Assert.AreEqual(41.07843108006926, area);
         }
+        /// <summary>
+        /// Проверка, является ли треугольник прямоугольным
+        /// </summary>
         [Test]
         public void TrinagleIsRectangularTrueTest()
         {
@@ -42,6 +41,9 @@ namespace CalculateArea.Tests
 
             Assert.AreEqual(true, area);
         }
+        /// <summary>
+        /// Проверка, не является ли треугольник прямоугольным
+        /// </summary>
         [Test]
         public void TrinagleIsRectangularFalseTest()
         {
@@ -51,7 +53,9 @@ namespace CalculateArea.Tests
 
             Assert.AreEqual(false, area);
         }
-
+        /// <summary>
+        /// Вычисление площади фигуры без знания типа фигуры
+        /// </summary>
         [Test]
         public void FigureCalculateAreaTest()
         {
