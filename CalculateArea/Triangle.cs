@@ -11,9 +11,6 @@ namespace CalculateArea
         public double A { get; }
         public double B { get; }
         public double C { get; }
-
-        private bool _isRectangular;
-        public bool IsRectangular { get { return _isRectangular; } }
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -21,19 +18,18 @@ namespace CalculateArea
         /// <param name="b"></param>
         /// <param name="c"></param>
         public Triangle(double a, double b, double c)
-        {
-            if (a < 0 || b < 0 || c < 0)
-                throw new ArgumentException("Отрицательные значения сторон недопустимы");
+        {   
             A = a;
             B = b;
             C = c;
-
-            IsRectangularCheck();
+            string error = IsValid();
+            if (!string.IsNullOrEmpty(error))
+                throw new ArgumentException(error);
         }
         /// <summary>
         /// Проверить, является ли треугольник прямоугольным
         /// </summary>
-        private void IsRectangularCheck() 
+        public bool IsRectangularCheck() 
         {
             List<double> list = new List<double>() {A,B,C};
             double maxItem = list.Max();
@@ -43,7 +39,7 @@ namespace CalculateArea
             foreach (double item in list)
                 sqrLegsSum += Math.Pow(item, 2);
 
-            _isRectangular = Math.Pow(maxItem, 2) == sqrLegsSum;
+            return Math.Pow(maxItem, 2) == sqrLegsSum;
         }
         /// <summary>
         /// Вычислить площадь треугольника
@@ -53,8 +49,18 @@ namespace CalculateArea
         {
             double sPerimeter = (A + B + C) / 2;
             double area = Math.Sqrt(sPerimeter * (sPerimeter - A) * (sPerimeter - B) * (sPerimeter - C));
-
+            area = Math.Round(area, 2);
             return area;
+        }
+
+        private string IsValid() 
+        {
+            if (A < 0 || B < 0 || C < 0)
+                return "Отрицательные значения сторон недопустимы";
+            if (A + B < C || A + C < B || B + C < A)
+                return "Некорректное значение сторон";
+
+            return string.Empty;
         }
     }
 }
